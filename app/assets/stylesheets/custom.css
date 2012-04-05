@@ -1,0 +1,12 @@
+a img {
+/*	border: 1px solid black;*/
+	margin-top: 1px;
+}
+
+#showPhotoModal.modal{
+   width: auto;
+}
+
+#photoCarousel.carousel {
+  margin-bottom: 0px;
+}

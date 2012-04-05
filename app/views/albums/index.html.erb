@@ -1,0 +1,48 @@
+<!-- <h1>Listing albums</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%# @albums.each do |album| %>
+  <tr>
+    <td><%#= album.name %></td>
+    <td><%#= album.location %></td>
+    <td><%#= album.description %></td>
+    <td><%#= link_to 'Show', album %></td>
+    <td><%#= link_to 'Edit', edit_album_path(album) %></td>
+    <td><%#= link_to 'Destroy', album, confirm: 'Are you sure?', :method =>  :delete %></td>
+  </tr>
+<%# end %>
+</table>
+
+<br />
+ -->
+<%= link_to 'New Album', new_album_path %>
+
+
+<header class="jumbotron subhead" id="overview">
+  <h1>Your albums</h1>
+  <p class="lead">We've included a few basic examples as starting points for your work with Bootstrap. We encourage folks to iterate on these examples and not simply use them as an end result.</p>
+</header>
+
+<ul class="thumbnails bootstrap-examples">
+  <% @albums.each do |album| %>
+    <li class="span4">
+      <p class="thumbnail">
+        <% album.photos[0..5].each do |p| %>      	
+        	<%= link_to(image_tag(p.image.url(:thumb)), album , :class => "image-border") %>      
+        <% end %>
+      </p>
+      <h3><%= album.name %></h3>
+      <p><%= album.location %></p>
+      <p><%= album.description %></p>
+    </li>
+  <% end %>
+</ul>

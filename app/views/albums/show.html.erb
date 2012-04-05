@@ -1,0 +1,65 @@
+<div class="page-header">
+  <h1>
+    <%= @album.name %>
+    <small><%= @album.location %></small>
+  </h1> 
+</div>
+<span><p><%= @album.description %></p></span>
+<ul class="thumbnails">
+  <% count = 0 %>
+  <% @album.photos.each do |p| %>    
+    <li class="span3">
+      <div class="thumbnail">
+        <%= link_to image_tag(p.image.url(:small)), album_photo_path(:album_id => @album.id, :id => p.id), :class => 'remote thumbnail' %>
+        <div class="caption">
+          <h5>Thumbnail label</h5>
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p>
+            <a class="btn btn-info" href="#">Edit info</a>
+            <%= link_to 'Delete', album_photo_path(:album_id => @album.id, :id => p.id), confirm: 'Are you sure?', :class => "btn btn-danger", :method =>:delete %>
+          </p>          
+        </div>
+      </div>
+    </li>
+    <% count = count + 1 %>
+    <% if count > 3 %>
+      <% count = 0 %>
+      </ul>
+      <ul class="thumbnails">
+    <% end %>
+  <% end %>
+</ul>
+
+<div id="showPhotoModal" class="modal hide fade"></div>
+
+
+<div class="modal hide fade" id="addPhotoModal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Add new photo</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_for :photo, :url => album_photos_path(@album), :html => {:class => 'form-horizontal', :multipart => true, :id => "uploadPhotoModalForm", :method => :post} do |f| %>    
+      <%= file_field :photo, :image, :multiple => true %>     
+    <% end %>
+    <p>You can select multiple images at a time.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <a href="#" class="btn btn-primary" id="submitModalForm">Add</a>
+  </div>
+</div>
+
+
+<a class="btn btn-primary btn-large" data-toggle="modal" href="#addPhotoModal">Add photo</a> |
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>
+
+<script type="text/javascript">
+  $("#submitModalForm").live('click', function(e){
+    $('#uploadPhotoModalForm').submit();
+    $("#uploadPhotoModalForm :file").val('');
+    $('#addPhotoModal').modal('hide');
+    e.preventDefault();
+  });
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rapp</title>
+  <style>
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  .sidebar-nav {
+    padding: 9px 0;
+  }
+  </style>
+  
+  <%= stylesheet_link_tag "bootstrap", "bootstrap-responsive", "jackedup", "custom", :media => "all" %>
+  <%= javascript_include_tag "jquery", 'jquery.livequery', "bootstrap-transition", "bootstrap-alert", "bootstrap-modal", "bootstrap-dropdown", "bootstrap-scrollspy", "bootstrap-tab", "bootstrap-tooltip", "bootstrap-popover", "bootstrap-button", "bootstrap-collapse", "bootstrap-carousel", "bootstrap-typeahead", "humane", "jquery_ujs", "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Project name</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="/albums">Albums</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+          
+          <form class="navbar-search pull-left">
+            <input type="text" class="search-query" placeholder="Search">
+          </form>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    
+      <!-- <div class="alert alert-success">
+        <a class="close" data-dismiss="alert">×</a>
+        <p><%= notice %></p>
+      </div> -->
+    <% if notice %>
+			<script type="text/javascript">
+          humane.success("<%= notice %>");
+      </script>
+		<% end %>
+		
+		
+		<% if flash[:error] %>
+			<script type="text/javascript">
+          humane("<%= flash[:error] %>");
+      </script>
+		<% end %>
+		
+		
+    <%= yield %>
+    
+    <script type="text/javascript">
+      $(".alert-message").alert()
+    </script>
+    <hr>
+    <footer>
+      <p>&copy; Company 2012</p>
+    </footer>    
+  </div>
+    
+</body>
+</html>

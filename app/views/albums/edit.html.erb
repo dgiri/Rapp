@@ -1,0 +1,17 @@
+<h1>Editing album</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @album %> |
+<%= link_to 'Back', albums_path %>
+
+
+<script type="text/javascript">
+  $('#add-Another-photo').click(function(e) {
+  var i = parseInt($("#picture-List-Area").children('input:file').last().attr("id").match(/\d+/g)) + 1;
+
+  var content = "<br/><input type='file' name='album[photos_attributes]["+i+"][image]' id='album_photos_attributes_"+i+"_image'><br />"
+      $('#picture-List-Area').append(content);
+       e.preventDefault();
+     });
+</script>

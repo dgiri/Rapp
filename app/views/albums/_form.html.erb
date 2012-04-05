@@ -1,0 +1,39 @@
+<%= simple_form_for @album, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+  <% if f.error_notification %>
+    <div class="alert alert-error fade in">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= f.error_notification %>
+    </div>
+  <% end %>
+  
+
+  <legend>Album</legend>
+  <%= f.input :name, :input_html => { :class => "span6" }, :hint => "add your album name here" %>
+  
+  <%= f.input :location, :input_html => { :class => "span6" }, :hint => "add your album location here" %>
+  
+  <%= f.input :description, :input_html => { :class => "span6" }, :hint => "add your album description here" %>
+  
+  <legend>Pictures</legend>
+  
+  <div  class="controls">
+    <%= f.fields_for :photos do |photo| %>
+      <ul>
+        <% photo.object.errors.full_messages.uniq.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+      <% if photo.object.new_record? && photo.object.errors.blank? %>
+        <p id="picture-List-Area"><%= photo.file_field :image %><br/></p> 
+      <% end %>
+    <% end %>
+    <%= link_to "Add another", "#", :id => "add-Another-photo" %>
+  </div>  
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to 'Cancel', albums_path, :class => "btn" %>
+  </div>  
+<% end %>
+
+

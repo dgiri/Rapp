@@ -1,0 +1,12 @@
+
+<%= render 'form' %>
+
+<script type="text/javascript">
+  $('#add-Another-photo').click(function(e) {
+  var i = $("#picture-List-Area").children('input').size();
+
+  var content = "<br/><input type='file' name='album[photos_attributes]["+i+"][image]' id='album_photos_attributes_"+i+"_image'><br />"
+      $('#picture-List-Area').append(content);
+       e.preventDefault();
+     });
+</script>
