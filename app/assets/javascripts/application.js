@@ -45,27 +45,21 @@ $("a.remoteDelete").livequery('click', function() {
 
 //Form submit with ajax
 //----------------------------------------------------------------------------
-$('form').live('submit', function() {
-	var options = { 
-      // target:        '#output2',   // target element(s) to be updated with server response 
-      // beforeSubmit:  showRequest,  // pre-submit callback 
-      // success:       showResponse  // post-submit callback 
-      resetForm: true        // reset the form after successful submit 
-  }; 
-  
-	// $(this).ajaxSubmit(options); 
-	if($(this).hasClass('remote')) {
-			$(this).ajaxSubmit({
-		  		dataType: 'script'
-		  });
-	}else{
-			form.submit();
-	}
+$('form').livequery(function() {
+	$(this).validate({
+	 submitHandler: function(form) {
+			var f = $(form);
+	   	if(f.hasClass('remote')) {
+					f.ajaxSubmit({
+				  		dataType: 'script'
+				  });
+			}else{
+					form.submit();
+			}   
+	 }
+	});	
 	return false; 
 });
-
-
-
 
 // Global ajax activity indicators.
 //----------------------------------------------------------------------------

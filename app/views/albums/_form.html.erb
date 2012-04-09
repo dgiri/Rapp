@@ -23,7 +23,7 @@
         <% end %>
       </ul>
       <% if photo.object.new_record? && photo.object.errors.blank? %>
-        <p id="picture-List-Area"><%= photo.file_field :image %><br/></p> 
+        <p id="picture-List-Area"><%= photo.file_field :image, :class => "required" %><br/></p> 
       <% end %>
     <% end %>
     <%= link_to "Add another", "#", :id => "add-Another-photo" %>

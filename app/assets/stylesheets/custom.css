@@ -21,3 +21,7 @@ a img {
 	-webkit-border-bottom-right-radius: 5px;}
 #progress img {	vertical-align: middle;margin: 0 2px;}
 /* @end */
+
+form .error{
+	color: #c00;
+}

@@ -1,14 +1,11 @@
-
-
-
 <div id="photoCarousel" class="carousel">
   <div class="carousel-inner">
     <% @photos.each do |photo| %>
       <div class=" <%= photo.id == @photo.id ? 'active' : '' %> item">
         <%= image_tag(photo.image.url(:large)) %>
         <div class="carousel-caption">
-          <h4>Third Thumbnail label</h4>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+          <h4><%= photo.label %></h4>
+          <p><%= photo.note %></p>
         </div>
       </div>
     <% end %>    

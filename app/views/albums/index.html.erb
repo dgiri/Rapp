@@ -37,7 +37,7 @@
     <li class="span4">
       <p class="thumbnail">
         <% album.photos[0..5].each do |p| %>      	
-        	<%= link_to(image_tag(p.image.url(:thumb)), album , :class => "image-border") %>      
+        	<%= link_to(image_tag(p.image.url(:thumb)), album, :class => "imgPopOver image-border", "data-original-title" => p.label, "data-content" => p.note, "data-placement"=>"bottom") %>      
         <% end %>
       </p>
       <h3><%= album.name %></h3>
@@ -46,3 +46,7 @@
     </li>
   <% end %>
 </ul>
+
+<script type="text/javascript">
+  $('.imgPopOver').popover();
+</script>

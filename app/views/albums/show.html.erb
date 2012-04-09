@@ -31,10 +31,9 @@
   <% end %>
 </ul>
 <hr/>
-<p  style="float:right;">
+<p>
   <%= link_to 'Back', albums_path, :class => "btn btn-inverse" %>
   <%= link_to 'Edit', edit_album_path(@album), :class => "btn btn-inverse" %>
-  <a class="btn btn-primary btn-large" data-toggle="modal" href="#addPhotoModal" data-original-title="Add photos" data-content="Inside from you can select more than one picture at a time." data-placement="top">Add more photos</a>
 </p>
 <div id="showPhotoModal" class="modal hide fade"></div>
 
@@ -46,7 +45,7 @@
   </div>
   <div class="modal-body">
     <%= form_for :photo, :url => album_photos_path(@album), :html => {:class => 'form-horizontal', :multipart => true, :id => "uploadPhotoModalForm", :method => :post} do |f| %>    
-      <%= file_field :photo, :image, :multiple => true %>     
+      <%= file_field :photo, :image, :multiple => true, :class => "required" %>     
     <% end %>
     <p>You can select multiple images at a time.</p>
   </div>
@@ -61,7 +60,7 @@
   $("#submitModalForm").live('click', function(e){
     $('#uploadPhotoModalForm').submit();
     $("#uploadPhotoModalForm :file").val('');
-    $('#addPhotoModal').modal('hide');
+    // $('#addPhotoModal').modal('hide');
     e.preventDefault();
   });
   $("#submitModalPhotoUpdateForm").live('click', function(e){
