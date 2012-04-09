@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <a class="close" data-dismiss="modal">×</a>
+  <h3>Update photo info</h3>
+</div>
+
+<div class="modal-body">
+  <%= simple_form_for @photo, :url => album_photo_path(:album_id => @album.id, :id => @photo.id), :html => {:class => "remote", :id => 'updateModalPhotoInfo', :multipart => true, :method => :put} do |f| %>    
+    <%= f.input :label, :input_html => { :class => "span6" }, :hint => "add label to photo" %>
+    <%= f.input :note, :input_html => { :class => "span6" }, :hint => "add note to photo" %>
+  <% end %>
+</div>
+<div class="modal-footer">
+  <a href="#" class="btn" data-dismiss="modal">Close</a>
+  <a href="#" class="btn btn-primary" id="submitModalPhotoUpdateForm">Update</a>
+</div>

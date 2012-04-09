@@ -43,6 +43,46 @@ $("a.remoteDelete").livequery('click', function() {
     return false;
 });
 
+//Form submit with ajax
+//----------------------------------------------------------------------------
+$('form').live('submit', function() {
+	var options = { 
+      // target:        '#output2',   // target element(s) to be updated with server response 
+      // beforeSubmit:  showRequest,  // pre-submit callback 
+      // success:       showResponse  // post-submit callback 
+      resetForm: true        // reset the form after successful submit 
+  }; 
+  
+	// $(this).ajaxSubmit(options); 
+	if($(this).hasClass('remote')) {
+			$(this).ajaxSubmit({
+		  		dataType: 'script'
+		  });
+	}else{
+			form.submit();
+	}
+	return false; 
+});
+
+
+
+
+// Global ajax activity indicators.
+//----------------------------------------------------------------------------
+$(document).ajaxStart(function(){
+    $('#progress').animate({top: 0});
+}).ajaxStop(function(){
+    $('#progress').animate({top: '-300px'});
+});
+
+$(document).ajaxComplete(function(event,response,settings) {
+    if(response.status == 401) {
+        var newLocationObject = Util.parseJSON(response.responseText);
+        window.location = newLocationObject.location;
+    }
+});
+
+
 // Namespace for storing all utility functions
 //----------------------------------------------------------------------------
 if (typeof Util == 'undefined') {

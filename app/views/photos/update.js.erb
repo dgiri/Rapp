@@ -1,0 +1,7 @@
+<% if @photo.update_attributes(params[:photo]) %>
+  $('#photoCaptionH_<%= @photo.id %>').html("<%= @photo.label %>");
+  $('#photoCaptionP_<%= @photo.id %>').html("<%= @photo.note %>");
+  $('#photoCaption_<%= @photo.id %>').effect('highlight', {}, 10000);  
+<% else %>
+  humane.error("Photo info was not updated");
+<% end %>

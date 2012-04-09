@@ -13,10 +13,11 @@
   </style>
   
   <%= stylesheet_link_tag "bootstrap", "bootstrap-responsive", "jackedup", "custom", :media => "all" %>
-  <%= javascript_include_tag "jquery", 'jquery.livequery', "bootstrap-transition", "bootstrap-alert", "bootstrap-modal", "bootstrap-dropdown", "bootstrap-scrollspy", "bootstrap-tab", "bootstrap-tooltip", "bootstrap-popover", "bootstrap-button", "bootstrap-collapse", "bootstrap-carousel", "bootstrap-typeahead", "humane", "jquery_ujs", "application" %>
+  <%= javascript_include_tag "jquery", "jquery-ui-1.8.18.custom.min", 'jquery.livequery', "jquery.form", "bootstrap-transition", "bootstrap-alert", "bootstrap-modal", "bootstrap-dropdown", "bootstrap-scrollspy", "bootstrap-tab", "bootstrap-tooltip", "bootstrap-popover", "bootstrap-button", "bootstrap-collapse", "bootstrap-carousel", "bootstrap-typeahead", "humane", "jquery_ujs", "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render :partial => "shared/progress" %>
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">

@@ -9,4 +9,15 @@ a img {
 
 #photoCarousel.carousel {
   margin-bottom: 0px;
+	border: 4px solid #F3F3F3;
 }
+
+
+/* @group Progress */
+#progress {background: #eef9fb;border: 1px solid #23afc4;border-top: none;margin: 0 !important;position: fixed;padding: 5px;top: -60px;right: 1px;z-index: 999999;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;}
+#progress img {	vertical-align: middle;margin: 0 2px;}
+/* @end */

@@ -37,4 +37,24 @@ class PhotosController < ApplicationController
       format.json { head :no_content }
     end    
   end
+  
+  def edit
+    @album = Album.find(params[:album_id])
+    @photo = @album.photos.find(params[:id])    
+    
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end    
+  end
+  
+  def update
+    @album = Album.find(params[:album_id])
+    @photo = @album.photos.find(params[:id])    
+    
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end    
+  end
 end
