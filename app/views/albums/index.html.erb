@@ -1,30 +1,4 @@
-<!-- <h1>Listing albums</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Location</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<%# @albums.each do |album| %>
-  <tr>
-    <td><%#= album.name %></td>
-    <td><%#= album.location %></td>
-    <td><%#= album.description %></td>
-    <td><%#= link_to 'Show', album %></td>
-    <td><%#= link_to 'Edit', edit_album_path(album) %></td>
-    <td><%#= link_to 'Destroy', album, confirm: 'Are you sure?', :method =>  :delete %></td>
-  </tr>
-<%# end %>
-</table>
-
-<br />
- -->
-<%= link_to 'New Album', new_album_path %>
+<%= link_to 'Create an Album', new_album_path, :class => "btn btn-primary btn-large", :style =>"float:right;" %>
 
 
 <header class="jumbotron subhead" id="overview">

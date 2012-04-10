@@ -1,0 +1,20 @@
+<div class="bootForm container">
+
+  <%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => "form-horizontal" }) do |f| %>
+    <fieldset>
+      <legend>Resend confirmation instructions</legend>    
+  
+      <%= f.error_notification %>
+
+      <div class="inputs">
+        <%= f.input :email, :required => true %>
+      </div>
+
+      <div class="actions" style="padding-left:160px;">
+        <%= f.button :submit, "Resend confirmation instructions", :class => "btn btn-primary" %>
+      </div>
+    </fieldset>
+  <% end %>
+
+  <%= render "links" %>
+</div>

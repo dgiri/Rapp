@@ -1,4 +1,6 @@
 Rapp::Application.routes.draw do
+  devise_for :users
+
   # resources :photos
   resources :albums do
     resources :photos

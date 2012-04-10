@@ -1,0 +1,23 @@
+<div class="bootForm container">
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
+    <fieldset>
+      <legend>Edit <%= resource_name.to_s.humanize %></legend>    
+    
+      <%= f.error_notification %>
+
+      <div class="inputs">
+        <%= f.input :email, :required => true, :autofocus => true %>
+        <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
+        <%= f.input :password_confirmation, :required => false %>
+        <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+      </div>
+
+      <div class="actions" style="padding-left:160px;">
+        <%= f.button :submit, "Update", :class => "btn btn-primary" %>
+        <%= link_to 'Back', :back, :class => "btn btn-inverse" %>
+      </div>
+    </fieldset>
+  <% end %>
+
+  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :class => "btn btn-mini btn-warning" %></p>
+</div>
