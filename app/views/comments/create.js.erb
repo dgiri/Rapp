@@ -1,0 +1,8 @@
+<% if @comment.errors.blank? %>
+  $('#photoCommentList').html('<%= escape_javascript(render :partial => 'comments/photo_comment_list', :locals => {:comments => @comments}) %>');  
+  $('#commentBody_<%= @comment.id %>').effect('highlight', {}, 10000);
+  $('#addCommentPhoto').resetForm();
+<% else %>
+
+<% end %>
+  

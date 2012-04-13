@@ -1,0 +1,5 @@
+<% comments.each do |comment| %>
+  <h4>On <%= comment.created_at.localtime.strftime("%b %d, %Y at %I:%M %p") %></h4>
+  <p id="commentBody_<%= comment.id %>"><%= comment.body %></p>
+  <p class="seperator"></p>
+<% end %>

@@ -45,6 +45,7 @@ class AlbumsController < ApplicationController
   # POST /albums.json
   def create
     @album = Album.new(params[:album])
+    @album.user_id = current_user.id
     # @album.photos.build 
     respond_to do |format|
       if @album.save
@@ -52,7 +53,6 @@ class AlbumsController < ApplicationController
         format.json { render json: @album, status: :created, location: @album }
       else
         @album.photos.build
-        Rails.logger.info "----------------#{@album.errors.inspect}------------------"
         format.html { render action: "new" }
         format.json { render json: @album.errors, status: :unprocessable_entity }
       end

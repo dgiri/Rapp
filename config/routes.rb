@@ -1,12 +1,15 @@
 Rapp::Application.routes.draw do
+  # resources :comments
+
   devise_for :users
 
-  # resources :photos
   resources :albums do
-    resources :photos
-    member do
-      put 'add_photo'
-    end      
+    resources :photos do
+      member do
+        put 'add_photo'
+      end
+      resources :comments
+    end          
   end
 
   # The priority is based upon order of creation:

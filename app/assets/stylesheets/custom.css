@@ -41,9 +41,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, nav, sectio
 }
 */
 
-.emailText{
+/*.emailText{
 	color: #0088cc;
 }
 .emailText:hover {
   color: #FFFBF7;
+}
+*/
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+	background-color: #D9EDF7;
+}
+
+.seperator {
+    background-color: #E5E5E5;
+    border-bottom: 1px solid #FFFFFF;
+    height: 1px;
+    margin: 8px 1px;
+    overflow: hidden;
 }

@@ -35,16 +35,17 @@
               <li><a href="#contact">Contact</a></li>
             </ul>
             <% if user_signed_in? %>
-              <ul class="nav nav-pills pull-right">
+              <ul class="nav pull-right">
+                <li><a href="#">Logged in as</a></li>
+                <li class="divider-vertical"></li>
                 <li class="dropdown">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">Logged in as <b class="emailText"><%= current_user.email %></b> <b class="caret"></b></a>
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= current_user.email %> <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li>
-                      <%= link_to 'Update profile', edit_user_registration_path %>
-                    </li>
-                    <li>
-                      <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-                    </li>
+                    <li><%= link_to 'Update profile', edit_user_registration_path %></li>
+                    <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
                   </ul>
                 </li>
               </ul>

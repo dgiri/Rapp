@@ -1,5 +1,6 @@
 class Photo < ActiveRecord::Base
   belongs_to :album
+  has_many :comments
   has_attached_file :image,
       :styles => {
         :thumb=> "117x100#",

@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <a class="close" data-dismiss="modal">×</a>
+  <h3>Comments</h3>
+</div>
+
+<div class="modal-body">
+  <p><%= image_tag(@photo.image.url(:small)) %></p><hr/>
+  <div id="photoCommentList" class="span4">
+    <%= render :partial => "comments/photo_comment_list", :locals => {:comments => @comments} %>
+  </div>  
+</div>
+<div class="modal-footer">
+  <%= form_for :comment, :url => album_photo_comments_path(:album_id => @album.id, :photo_id => @photo.id), :html => {:class => "remote", :id => 'addCommentPhoto', :method => :post} do |f| %>
+  <fieldset>    
+    <%= f.text_area :body, :rows => 2, :style =>"width:500px;", :class => "required" %>
+  </fieldset>
+  <% end %>
+  <a href="#" class="btn" data-dismiss="modal">Close</a>
+  <a href="#" class="btn btn-primary" id="submitCommentPhotoForm">Post a comment</a>
+</div>

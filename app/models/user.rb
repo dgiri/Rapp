@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
   # validates_presence_of :email, :password, :message => "can't be blank"
+  has_many :albums, :dependent => :destroy
 end
