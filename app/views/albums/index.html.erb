@@ -1,4 +1,8 @@
-<%= link_to 'Create an Album', new_album_path, :class => "btn btn-primary btn-large", :style =>"float:right;" %>
+
+
+<%= link_to(new_album_path, {:class => "btn btn-primary btn-large", :style =>"float:right;"}) do %>
+  <i class="icon-user icon-white"></i>Create an Album 
+<% end %>
 
 <header class="jumbotron subhead" id="overview">
   <h1>Your albums</h1>
